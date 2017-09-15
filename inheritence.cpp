@@ -1,7 +1,7 @@
 #include<iostream>
 #include<complex>
 #include<math.h>
-
+#include "cblas.h"
 using namespace std;
 
 class waveparticle {
