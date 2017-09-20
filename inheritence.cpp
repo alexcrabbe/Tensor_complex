@@ -20,7 +20,9 @@ double momentum (double M, double E){
 	return sqrt(2*M*E);
 };
 complex<double> wavenumber (double M, double E) {
-return sqrt(2*M*E);
+	if (E>=0){
+return sqrt(2*M*E);} else {
+	return (0, sqrt(-2*M*E));}
 };
 
 };
@@ -35,6 +37,9 @@ fermion proton(3000, 1);
 
 cout << "mass of electron is " << electron.mass << endl;
 cout << "mass of proton is " << proton.mass << endl;
+
+cout << "momentum of electron is " << electron.momentum(electron.mass, 10) << endl;
+cout << "wavenumer of electron is " << electron.wavenumber(electron.mass, 10) << endl;
 
 return 0;
 }

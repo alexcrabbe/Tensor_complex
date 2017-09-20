@@ -2,15 +2,33 @@
 #include <stdlib.h>
 #include <iostream>
 #include "cblas.h"
+#include<string>
 
+//function to print matrix values
+class mat {
+	public:
+   mat(double *matrix,int a, int b, std::string mname){double S=*matrix; int m=b; int k=b; std::string name=mname;};
+	
+void pmatrix (void) {  
+	int i=0;
+    int j=0;
+    
+    std::cout << name << std::endl; 
+   for(i=0;i<m;i++){
+	   for(j=0;j<k;j++){std::cout << S[i+(j*(k+1))] << ",";}
+	    std::cout << std::endl;
+	}
+	    std::cout << std::endl;
+   };	   
+ };
+ 
 int main(){
 	
-    int i=0;
-    int j=0;
+
     
 //size of matrices A,B,C
 
-	const int M=2; //Rows of A
+	const int M=5; //Rows of A
 	const int N=1; //Columns B
 	const int K=2; //Columns of A Rows of B
 
@@ -25,16 +43,15 @@ int main(){
    
  //define matrices
  
-	double A[M*K]={6,7,3,2};
-	const double B[N*K]={4,5};
+	double A[M*K]={6,7,3,2,2,2};
+    double B[N*K]={4,5};
 	double C[M*N];
 	
-	for(i=0;i<M;i++){
-		for(j=0;j<K;j++){
-			if (i=M*j){
-				A[i]=2*i;} else A[i]=0;}
-			}
-		};
+	int j=0;
+	
+	for(j=0;j<M*K;j++){
+				A[j]=j;
+			};
    
 	/*
 	double * AP = (double*) malloc(sizeof(double)*M*N);
@@ -66,22 +83,26 @@ int main(){
 				alpha, A,
 				lda, B, ldb,
 				beta,C,ldc);
-                 
-            
-     
-     
+                   
  //print results
-          
-   
-   std::cout <<  "A= " << A[0] << "," << A[2] << std::endl;
-   std::cout <<  "   " << A[1] << "," << A[3] << std::endl << std::endl;
-   
-   std::cout <<  "B= " << B[0] << std::endl;
-   std::cout <<  "   " << B[1] << std::endl << std::endl;
-   
-   std::cout << "C= " << C[0] << std::endl;
-   std::cout << "   " << C[1] << std::endl;
-   
+ 
+ mat mat1(A,M,K,"A");
+
+	mat1.pmatrix;
+	/*
+		std::cout << "A=" << std::endl;
+		
+	
+		
+		std::cout << "B=" << std::endl;
+		
+		Pmatrix(B,K,N);
+		
+		std::cout << "C=" << std::endl;
+		
+		Pmatrix(C,M,N);
+		
+   */
 	return 0;          
 }
 			 
